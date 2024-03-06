@@ -1,0 +1,55 @@
+\section{Одномерная оптимизация без использования производной}
+Часто случается, что производную сложно или невозможно найти, поскольку,
+например, сама имеет неизвестное уравнение.
+
+Попробуем найти экстремумы без производной, даже не дифференцируемой.
+
+\begin{definition}
+  Функция $ f(x)\colon [a,b] \to \mathbb R $ называется \emph{унимодальной},
+  если она непрерывна на этом отрезке и существуют такие числа $ a \leqslant \alpha
+  \leqslant \beta \leqslant b$, что
+  \begin{itemize}[label=---]
+    % \item $0 \leqslant \alpha \leqslant \beta \leqslant b$,\\
+    \item функция $ f(x) $ строго монотонно убывает на $ [a, \alpha] $,\\
+    \item $ f(x) \equiv c $ для всех $ x \in [\alpha, \beta] $,\\
+    \item $ f(x) $ строго монотонно возрастает на $ [\beta, b] $.      
+  \end{enumerate}
+  
+Функция называется \emph{строго унимодальной}, если $ \alpha = \beta $.
+\end{definition}
+
+\begin{remark}
+  Выпуклая вниз непрерывная на $ [a, b] $ функция унимодальна на этом отрезке.
+\end{remark}
+\begin{remark}
+  У унимодальной функции $ \Omega_\ast = [\alpha, \beta] $ минимум $ m_\ast = c
+  $. Множество точек минимума.
+\end{remark}
+\begin{remark}
+  Есно, что если функция $ f(x) $ унимодальна на $ [a, b] $ и $ [c,d] \subset
+  [a,b] $, то $ f(x) $ унимодальна на $ [c, d] $.
+\end{remark}
+\setcounter{remark}{0}
+
+\paragraph{1. Метод деления отрезка пополам.} Пусть $ f(x) $ унимодальна на $
+[a,b] $, где $ b > a $. Выберем параметр $ 0 < \delta < b-a $. Выберем две
+точки 
+\[
+    u_1 = \frac{a + b -\delta}{2}, \quad u_2 = \frac{a+ b+\delta}{2}.
+\]
+Вычислим $ f(u_1) $, $ f(u_2) $.
+\begin{enumerate}
+  \item[1 сл.] $ f(u_1) \leqslant f(u_2) $. Тогда полагаем $ a_2 = a_1$,$b_2=u_2
+    $,
+  \item[2 сл.] $ f(u_1) > f(u_2) $. Тогда полагаем $ a_2 = u_1 $, $ b_2 = b_1 $.
+\end{enumerate}
+Тогда $ f $ унимодальна на $ [a_2, b_2] $.
+
+Вычисляем $ f(u_{2k-1}) $ и $ f(u_{2k}) $.
+\begin{enumerate}
+  \item[1 сл.] $ f(u_{2k-1}) \leqslant f(u_{2k}) $. Тогда $ a_{k+1} = a_k $, $ b_{k+1} = u_{2k} $,
+  \item[2 сл.] $ f(u_{2k-1}) > f(u_{2k}) $. $ a_{k+1} = u_{2k-1} $, $ b_{k+1} = b_k $.
+\end{enumerate}
+$ l([a_{k+1}, b_{k+1}]) = \frac{b-a -\delta}{2^{k+1}} + \delta > \delta$.
+
+%TODO: пропуск

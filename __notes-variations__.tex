@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+\usepackage{amsthm, mathrsfs, mathtools, amssymb}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+
+\usepackage[english,russian]{babel}
+\usepackage[colorlinks = true, linkcolor = black, urlcolor = black]{hyperref}
+\usepackage[depth = subsection]{bookmark}
+\usepackage{enumitem}
+
+\ifx\pdfoutput\undefined
+\usepackage{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\fi
+\usepackage{wrapfig}
+
+ %\DeclareMathOperator{\pr}{pr}
+ %\DeclareMathOperator{\arctg}{arctg}
+ %\DeclareMathOperator{\arcctg}{arcctg}
+ %\DeclareMathOperator{\ch}{ch}
+ %\DeclareMathOperator{\sh}{sh}
+
+\usepackage{bm}
+
+
+\newtheoremstyle{example}% name
+{0.7cm}% Space above
+{0.7cm}% Space below
+{\small}% Body font
+{}% Indent amount
+{\small\scshape}% Theorem head font
+{.}% Punctuation after theorem head
+{.5em}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’)
+
+\newtheoremstyle{algorithm}
+{0.7cm}
+{0.7cm}
+{}
+{}
+{\tt}
+{.}
+{.5em}
+{}
+
+\theoremstyle{algorithm}
+\newtheorem{alg}{Алгоритм}
+
+\theoremstyle{example}
+\newtheorem{example}{Пример}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}
+\newtheorem{corollary}{Следствие}
+\newtheorem*{corollary*}{Следствие} 
+\newtheorem{lemma}{Лемма}
+\newtheorem{utv}{Утверждение}
+\newtheorem*{utv*}{Утверждение}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem*{definition*}{Определение}
+\newtheorem{question}{Вопрос}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Замечание}
+\newtheorem*{remark*}{Замечание}
+\numberwithin{remark}{section}
+
+\frenchspacing
+
+\usepackage[labelsep=period]{caption}
+\captionsetup{font = small}
+
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Spl}{\mathrm{Spl}}
+\newcommand{\spl}{\mathrm{spl}}
+
+\usepackage{bop}
+\graphicspath{
+    {images00-01/}{images00-02/}
+      {images01-01/}{images01-02/}{images01-03/}
+}
+\usepackage{showlabels}
+% будет показывать ссылки прямо в pdf. когда файл готов, лучше убрать
+
+\usepackage{geometry}
+\geometry{verbose,a4paper,tmargin=1cm,bmargin=2cm,lmargin=1.5cm,rmargin=1.5cm}
+
+
+
+\begin{document}
+\title{Методы оптимизации}
+\maketitle
+\tableofcontents
+
+\newpage
+\paragraph{Литература.}
+\begin{enumerate}
+  \item \emph{Васильев --- Численные методы решения экстремальных задач}.
+    Функциональный анализ, сжато, сложно, математично.
+\end{enumerate}
+
+\include{1-basics}
+\include{2-interp}
+\include{3}
+\include{4}
+\include{5}
+
+\end{document}
